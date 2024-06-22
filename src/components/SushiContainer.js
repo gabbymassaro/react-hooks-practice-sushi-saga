@@ -1,13 +1,13 @@
-import React from "react";
-import MoreButton from "./MoreButton";
+import React from "react"
+import MoreButton from "./MoreButton"
 
-function SushiContainer(props) {
+function SushiContainer({ sushi }) {
   return (
     <div className="belt">
       {/* Render Sushi components here! */}
       <MoreButton />
     </div>
-  );
+  )
 }
 
-export default SushiContainer;
+export default SushiContainer
