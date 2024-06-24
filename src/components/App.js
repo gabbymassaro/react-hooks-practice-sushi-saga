@@ -13,7 +13,11 @@ function App() {
 
   function handleNextSushi() {
     const nextIndex = currentIndex + sushiPerPage
-    if (nextIndex < sushi.length) setCurrentIndex(nextIndex)
+    if (nextIndex < sushi.length) {
+      setCurrentIndex(nextIndex)
+    } else {
+      setCurrentIndex(0)
+    }
   }
 
   useEffect(() => {
