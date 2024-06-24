@@ -1,11 +1,6 @@
 import React from "react"
 
-function Sushi({ name, image, price, sushi }) {
-  // const sushiPerPage = 4
-  // const [currentIndex, setCurrentIndex] = useState(0)
-
-  // const currentSuhsi = sushi.slice(currentIndex, currentIndex + sushiPerPage)
-
+function Sushi({ name, image, price }) {
   return (
     <div className="sushi">
       <div className="plate" onClick={/* Give me a callback! */ null}>

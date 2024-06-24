@@ -6,6 +6,10 @@ const API = "http://localhost:3001/sushis"
 
 function App() {
   const [sushi, setSushi] = useState([])
+  const sushiPerPage = 4
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const currentSushi = sushi.slice(currentIndex, currentIndex + sushiPerPage)
 
   useEffect(() => {
     fetch(API)
@@ -15,7 +19,7 @@ function App() {
 
   return (
     <div className="app">
-      <SushiContainer sushi={sushi} />
+      <SushiContainer currentSushi={currentSushi} />
       <Table />
     </div>
   )
