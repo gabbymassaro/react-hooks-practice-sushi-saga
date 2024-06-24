@@ -2,7 +2,7 @@ import React from "react"
 import MoreButton from "./MoreButton"
 import Sushi from "./Sushi"
 
-function SushiContainer({ currentSushi, sushi }) {
+function SushiContainer({ currentSushi, handleNextSushi }) {
   return (
     <div className="belt">
       {currentSushi.map((sushi) => (
@@ -15,7 +15,10 @@ function SushiContainer({ currentSushi, sushi }) {
           created_at={sushi.created_at}
         />
       ))}
-      <MoreButton sushi={sushi} />
+      <MoreButton
+        currentSushi={currentSushi}
+        handleMoreSushi={handleNextSushi}
+      />
     </div>
   )
 }

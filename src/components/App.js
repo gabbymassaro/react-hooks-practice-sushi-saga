@@ -11,6 +11,11 @@ function App() {
 
   const currentSushi = sushi.slice(currentIndex, currentIndex + sushiPerPage)
 
+  function handleNextSushi() {
+    const nextIndex = currentIndex + sushiPerPage
+    if (nextIndex < sushi.length) setCurrentIndex(nextIndex)
+  }
+
   useEffect(() => {
     fetch(API)
       .then((response) => response.json())
@@ -19,7 +24,10 @@ function App() {
 
   return (
     <div className="app">
-      <SushiContainer currentSushi={currentSushi} />
+      <SushiContainer
+        currentSushi={currentSushi}
+        handleNextSushi={handleNextSushi}
+      />
       <Table />
     </div>
   )
