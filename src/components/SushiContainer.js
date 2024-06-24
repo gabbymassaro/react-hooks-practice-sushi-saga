@@ -6,14 +6,7 @@ function SushiContainer({ currentSushi, handleNextSushi }) {
   return (
     <div className="belt">
       {currentSushi.map((sushi) => (
-        <Sushi
-          key={sushi.id}
-          id={sushi.id}
-          name={sushi.name}
-          image={sushi.img_url}
-          price={sushi.price}
-          created_at={sushi.created_at}
-        />
+        <Sushi key={sushi.id} sushi={sushi} />
       ))}
       <MoreButton
         currentSushi={currentSushi}

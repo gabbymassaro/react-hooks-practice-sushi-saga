@@ -6,9 +6,9 @@ const API = "http://localhost:3001/sushis"
 
 function App() {
   const [sushi, setSushi] = useState([])
-  const sushiPerPage = 4
   const [currentIndex, setCurrentIndex] = useState(0)
-
+  const [wallet, setWallet] = useState(100)
+  const sushiPerPage = 4
   const currentSushi = sushi.slice(currentIndex, currentIndex + sushiPerPage)
 
   function handleNextSushi() {
@@ -23,7 +23,13 @@ function App() {
   useEffect(() => {
     fetch(API)
       .then((response) => response.json())
-      .then((data) => setSushi(data))
+      .then((data) => {
+        const initialSushi = data.map((sushiItem) => ({
+          ...sushiItem,
+          isEaten: false,
+        }))
+        setSushi(initialSushi)
+      })
   }, [])
 
   return (
@@ -32,7 +38,7 @@ function App() {
         currentSushi={currentSushi}
         handleNextSushi={handleNextSushi}
       />
-      <Table />
+      <Table wallet={wallet} />
     </div>
   )
 }
