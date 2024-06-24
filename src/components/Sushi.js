@@ -1,11 +1,12 @@
 import React from "react"
 
-function Sushi({ sushi }) {
+function Sushi({ sushi, handleEaten }) {
   const { id, name, img_url, price, isEaten } = sushi
 
   function handleOnClick() {
-    console.log(sushi)
-    console.log(isEaten)
+    // console.log(sushi)
+    // console.log(isEaten)
+    handleEaten(id)
   }
 
   return (

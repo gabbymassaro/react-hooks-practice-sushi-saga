@@ -32,13 +32,35 @@ function App() {
       })
   }, [])
 
+  function handleEaten(id) {
+    const newEats = sushi.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          isEaten: true,
+        }
+      }
+      return item
+    })
+    setSushi(newEats)
+  }
+
+  const plates = sushi.filter((item) => {
+    if (item.isEaten === true) {
+      return true
+    } else {
+      return false
+    }
+  })
+
   return (
     <div className="app">
       <SushiContainer
         currentSushi={currentSushi}
         handleNextSushi={handleNextSushi}
+        handleEaten={handleEaten}
       />
-      <Table wallet={wallet} />
+      <Table wallet={wallet} plates={plates} />
     </div>
   )
 }
