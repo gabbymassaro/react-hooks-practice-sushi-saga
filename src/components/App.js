@@ -35,9 +35,13 @@ function App() {
   function handleEaten(id) {
     const newEats = sushi.map((item) => {
       if (item.id === id) {
-        return {
-          ...item,
-          isEaten: true,
+        if (item.price <= wallet) {
+          const newWallet = wallet - item.price
+          setWallet(newWallet)
+          return {
+            ...item,
+            isEaten: true,
+          }
         }
       }
       return item
@@ -46,7 +50,7 @@ function App() {
   }
 
   const plates = sushi.filter((item) => {
-    if (item.isEaten === true) {
+    if (item.isEaten === true && item.price <= wallet) {
       return true
     } else {
       return false
