@@ -7,16 +7,16 @@ const API = "http://localhost:3001/sushis"
 function App() {
   const [sushi, setSushi] = useState([])
 
-  // useEffect(() => {
-  //   fetch(API)
-  //     .then((response) => response.json())
-  //     .then((data) => setSushi(data))
-  // })
+  useEffect(() => {
+    fetch(API)
+      .then((response) => response.json())
+      .then((data) => setSushi(data))
+  }, [])
 
   return (
     <div className="app">
-      <SushiContainer />
-      <Table sushi={sushi} />
+      <SushiContainer sushi={sushi} />
+      <Table />
     </div>
   )
 }
