@@ -49,13 +49,7 @@ function App() {
     setSushi(newEats)
   }
 
-  const plates = sushi.filter((item) => {
-    if (item.isEaten === true && item.price <= wallet) {
-      return true
-    } else {
-      return false
-    }
-  })
+  const plates = sushi.filter((item) => item.isEaten && item.price <= wallet)
 
   return (
     <div className="app">
